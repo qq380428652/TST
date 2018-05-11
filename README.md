@@ -9,7 +9,7 @@ TST
 * ### 后台：
   * 首页轮播上传、商品增删改查，商品搜索查找功能。
 ## 使用说明
-   ###直接clone项目，运行即可。
+   ###  直接clone项目，运行即可。
 `
     $ git clone https://github.com/qq380428652/TST.git
 `
