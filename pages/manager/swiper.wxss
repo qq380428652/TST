@@ -1,0 +1,13 @@
+/* pages/manager/swiper.wxss */
+
+.imgs {
+  overflow: visible;
+}
+.imgs .weui-badge{
+  position: absolute;
+  top: -.4em;
+  right: -.4em;
+}
+.imgs .weui-uploader__file{
+  position: relative;
+}

@@ -1,0 +1,32 @@
+/* pages/goods/goods_detail.wxss */
+
+page {
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+
+.placeholder {
+  margin: 5px;
+  padding: 1em;
+  text-align: center;
+  height: 2.3em;
+  line-height: 2.3em;
+  border-bottom: 1px solid #ddd;
+}
+
+.descript {
+  font-size: 28rpx;
+  background-color: #d9edf7;
+  color: #31708f;
+  padding: 1em;
+  margin: 1em 1em 2em;
+  border: 1px solid #bce8f1;
+  border-radius: 4px;
+}
+
+.content {
+  border: 1px solid #8fbcd9;
+  color: #70a0c1;
+  border-radius: 4px;
+  padding: 1rem;
+}

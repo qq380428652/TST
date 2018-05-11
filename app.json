@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/manager/manager",
+    "pages/manager/goods_list",
+    "pages/manager/goods",
+    "pages/manager/swiper",
+    "pages/manager/msg_success",
+    "pages/manager/msg_fail",
+    "pages/goods/goods_detail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "TST商品",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ddd"
+  },
+  "tabBar": {
+    "color": "#aaa",
+    "selectedColor": "#02c101",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/images/index-icon.png",
+        "selectedIconPath": "pages/images/index-icon-fill.png"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "后台",
+        "iconPath": "pages/images/manager-icon.png",
+        "selectedIconPath": "pages/images/manager-icon-fill.png"
+      }
+    ]
+  }
+}

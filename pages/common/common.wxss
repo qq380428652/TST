@@ -1,0 +1,38 @@
+/* pages/common/common.wxss */
+.container .user-info {
+  padding: 10rpx 20rpx;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+
+.container .user-info text {
+  font-size: 32rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+
+.container .user-info .service {
+  position: relative;
+  height: 100%;
+  border: 1px solid #fff;
+  padding: 10rpx 0;
+}
+
+.container .user-info .service image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.container .user-info .weui-flex {
+  height: 80rpx;
+}
+
+.container .user-info .user-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.container .user-info .logout{
+  color: #338aff;
+}

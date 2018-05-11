@@ -1,0 +1,17 @@
+/* pages/manager/goods.wxss */
+.imgs {
+  overflow: visible;
+}
+.imgs .weui-badge{
+  position: absolute;
+  top: -.4em;
+  right: -.4em;
+}
+.imgs .weui-uploader__file{
+  position: relative;
+}
+.button-sp-area{
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 60%;
+}

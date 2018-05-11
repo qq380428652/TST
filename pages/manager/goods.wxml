@@ -1,0 +1,65 @@
+<!--pages/manager/goods.wxml-->
+<view class="container">
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{msgTip}}</view>
+  <view class="page__bd">
+    <view class="weui-cells__title">商品名</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" bindinput='nameChange' placeholder="请输入商品名" value="{{name}}" />
+        </view>
+      </view>
+    </view>
+    <!-- <view class="weui-cells__title">产品类型</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__bd">
+          <picker bindchange="bindTypeChange" value="{{typeIndex}}" range="{{type}}">
+            <view class="weui-select">{{type[typeIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+    </view> -->
+    <view class="weui-cells__title">商品封面图</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader__bd imgs">
+            <view class="weui-uploader__files" id="uploaderFiles">
+              <block wx:for="{{files}}" wx:key="*this">
+                <view class="weui-uploader__file" bindtap="previewImage" id="{{item.objectId}}">
+                  <image class="weui-uploader__img" src="{{item.url}}" mode="aspectFit" />
+                  <view class="weui-badge" catchtap="delImage" data-index="{{index}}">-</view>
+                </view>
+              </block>
+            </view>
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="chooseImage"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">商品描述</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" bindinput='descriptChange' placeholder="请输入商品描述" style="height: 3.3em" value="{{descript}}" />
+          <view class="weui-textarea-counter">{{descript.length}}/100</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">商品详细内容</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" bindinput='contentChange' placeholder="请输入商品详细内容" style="height: 5.3em" value="{{content}}" />
+          <view class="weui-textarea-counter">{{content.length}}/∞</view>
+        </view>
+      </view>
+    </view>
+    <view class="button-sp-area">
+      <button class="weui-btn" type="primary" bindtap='submit'>提交</button>
+    </view>
+  </view>
+</view>

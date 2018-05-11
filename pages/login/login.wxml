@@ -1,0 +1,37 @@
+<!--pages/login/login.wxml-->
+<view class="page__bd">
+  <view class="weui-toptips weui-toptips_{{status?'success':'warn'}}" wx:if="{{showTopTips}}">{{msgTip}}</view>
+  <view class="weui-cells__title">管理登录</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">账号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入账号" value="{{user}}" bindblur="userChange" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type="password" placeholder="请输入密码" value="{{psw}}" bindblur="pswChange" />
+      </view>
+    </view>
+    <!-- <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">验证码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入验证码" bindinput="verCodeChange" />
+      </view>
+      <view class="weui-cell__ft">
+        <image class="weui-vcode-img" src="../images/vcode.jpg" style="width: 108px"></image>
+      </view>
+    </view> -->
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="login">确定</button>
+  </view>
+</view>

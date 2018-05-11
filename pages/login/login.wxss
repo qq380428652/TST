@@ -1,0 +1,4 @@
+/* pages/login/login.wxss */
+.weui-toptips_success{
+  background-color: #1AAD19;
+}

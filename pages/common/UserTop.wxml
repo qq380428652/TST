@@ -1,0 +1,21 @@
+<!--pages/common/UserTop/UserTop.wxml-->
+<template name="UserTop">
+  <view class='user-info'>
+    <view class="weui-flex">
+      <view>
+        <view class="placeholder">
+          <image src="{{userInfo.avatarUrl}}" class='user-img'></image>
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <text class="placeholder">您好，{{userInfo.nickName}}</text>
+      </view>
+      <view>
+        <text class='logout' wx:if="{{manager}}" bindtap="logout">退出</text>
+        <button class="service" wx:if="{{!manager}}" plain="true" open-type='contact'>
+          <image src="../images/service.png" />
+        </button>
+      </view>
+    </view>
+  </view>
+</template>

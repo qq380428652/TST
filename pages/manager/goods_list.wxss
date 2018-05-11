@@ -1,0 +1,34 @@
+/* pages/manager/goods_list.wxss */
+
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 12px 15px 12px 35px;
+}
+
+.weui-form-preview {
+  margin-bottom: 25px;
+}
+
+.add-goods {
+  font-size:100rpx;
+  border: 2px solid #52a2fe;
+  color: #52a2fe;
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  background-color: #fff;
+  vertical-align: middle;
+}
