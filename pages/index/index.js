@@ -15,13 +15,14 @@ Page({
     },
     search: {
       inputVal: "",
-      types: ["商品名", "商品简介"],
+      types: ["红酒", "保湿"],
       typeIndex: 0,
     },
     goodsList: [],
     goods: []
   },
   //事件处理函数
+  //清楚输入内容
   clearInput: function () {
     let inputVal = "search.inputVal";
     this.setData({
@@ -31,6 +32,7 @@ Page({
       goods: this.data.goodsList
     });
   },
+  //输入搜索
   inputSearch: function (e) {
     let inputVal = "search.inputVal";
     this.setData({
@@ -44,6 +46,7 @@ Page({
     }
     this.search(e.detail.value, this.data.search.typeIndex)
   },
+  //选择类型搜索
   bindtypeChange: function (e) {
     console.log("picker type 发生选择改变，携带值为", e.detail.value);
     let typeIndex = "search.typeIndex";
@@ -58,6 +61,7 @@ Page({
     }
     this.search(this.data.search.inputVal, e.detail.value)
   },
+  // 搜索
   search(value, tp) {
     let that = this;
     let goodsList = this.data.goodsList;
@@ -65,13 +69,9 @@ Page({
     this.setData({
       goods: []
     });
-    if (tp == 0) {
-      tp = 'name'
-    } else if (tp == 1) {
-      tp = 'descript'
-    }
+
     for (let i in goodsList) {
-      if (regExp.test(goodsList[i].get(tp))) {
+      if (regExp.test(goodsList[i].get(tp)) && (regExp.test(goodsList[i].get('name')) || regExp.test(goodsList[i].get('descript')))) {
         console.log(goodsList[i])
         that.setData({
           goods: that.data.goods.concat(goodsList[i])
@@ -79,6 +79,15 @@ Page({
       }
     }
   },
+  // 预览图片
+  previewImage: function (e) {
+    console.log(e.currentTarget.id)
+    wx.previewImage({
+      current: e.currentTarget.id, // 当前显示图片的http链接
+      urls: this.data.swiper.banner // 需要预览的图片http链接列表
+    })
+  },
+  // 获取商品列表
   getGoodsList() {
     let that = this;
     let query = new AV.Query('goods');
@@ -95,6 +104,7 @@ Page({
       showToast(0, '获取失败' + error)
     });
   },
+  // 获取轮播图
   getBannerList() {
     let that = this;
     let bannerKey = "swiper.banner";
@@ -102,6 +112,9 @@ Page({
     query.find().then(function (banner) {
       // 成功获得实例
       console.log(banner)
+      for (let i in banner) {
+        banner[i] = banner[i].get('url')
+      }
       that.setData({
         [bannerKey]: [].concat(banner)
       })
@@ -110,6 +123,16 @@ Page({
       console.log(error)
       showToast(0, '获取失败' + error)
     });
+  },
+  getUserInfo(){
+    wx.getUserInfo({
+      success: res => {
+        app.globalData.userInfo = res.userInfo
+        this.setData({
+          userInfo: res.userInfo
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -142,7 +165,7 @@ Page({
     return {
       title: 'TST商品',
       path: '/page/user',
-      imageUrl:'../images/share-img.jpg',
+      imageUrl: '../images/share-img.jpg',
       success: function (res) {
         console.log(res)
         // 转发成功

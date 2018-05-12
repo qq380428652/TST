@@ -1,5 +1,19 @@
 /**index.wxss**/
 
+/*授权  */
+
+.auth {
+  width: 230rpx;
+  height: 100rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #fff;
+}
+
 /*用户信息  */
 
 .container .user-info {
@@ -40,7 +54,7 @@
 /*轮播  */
 
 .container swiper {
-  /* height: 400rpx; */
+  height: 400rpx;
 }
 
 .container .swiper image {

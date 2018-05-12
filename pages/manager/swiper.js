@@ -27,7 +27,7 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         console.log(res)
         if (that.data.files.length + res.tempFilePaths.length > that.data.fileLimite) return that.limitImageTip();  //限制上传个数判断
-
+        
         // 上传保存到服务器
         for (let i = 0; i < res.tempFilePaths.length; i++) {
           let tempFilePath = res.tempFilePaths[i];
@@ -49,6 +49,7 @@ Page({
               that.setData({
                 files: that.data.files.concat(banner)
               });
+             
             }, function (error) {
               // 异常处理
               console.error(error);
@@ -131,9 +132,14 @@ Page({
    * 浏览图片
    */
   previewImage: function (e) {
+    let prewFiles = [];
+    for (let i in this.data.files) {
+      prewFiles: prewFiles.push(this.data.files[i].get('url'))
+    }
+    console.log(prewFiles, e.currentTarget.id)
     wx.previewImage({
       current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.files // 需要预览的图片http链接列表
+      urls: prewFiles // 需要预览的图片http链接列表
     })
   },
   /**

@@ -12,6 +12,8 @@ Page({
     fileLimite: 1,
     files: [],
     name: '',
+    type: ['红酒', '保湿'],
+    typeIndex: 0,
     descript: '',
     content: '',
     operate: '添加'
@@ -29,6 +31,13 @@ Page({
   contentChange(e) {
     this.setData({
       content: e.detail.value
+    })
+  },
+  bindTypeChange: function (e) {
+    console.log('picker type 发生选择改变，携带值为', e.detail.value);
+
+    this.setData({
+      typeIndex: e.detail.value
     })
   },
 
@@ -136,6 +145,7 @@ Page({
     goods.set('imgUrl', that.data.files[0].url());
     goods.set('file', that.data.files[0]);
     goods.set('name', that.data.name);
+    goods.set('type', that.data.typeIndex);
     goods.set('descript', that.data.descript);
     goods.set('content', that.data.content);
     goods.save().then(function (goods) {
@@ -182,6 +192,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
+    console.log(1)
     // 获取商品
     if (!options.objectId) return
     this.setData({
@@ -202,7 +213,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+console.log(1)
   },
 
   /**

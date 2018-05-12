@@ -37,6 +37,9 @@
         <navigator url="goods?objectId={{item.objectId}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">修改</navigator>
       </view>
     </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{!goods.length}}">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
   </view>
   <navigator class="add-goods" url="goods">+</navigator>
 </view>

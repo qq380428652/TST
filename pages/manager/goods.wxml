@@ -10,7 +10,7 @@
         </view>
       </view>
     </view>
-    <!-- <view class="weui-cells__title">产品类型</view>
+    <view class="weui-cells__title">产品类型</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__bd">
@@ -19,7 +19,7 @@
           </picker>
         </view>
       </view>
-    </view> -->
+    </view>
     <view class="weui-cells__title">商品封面图</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
