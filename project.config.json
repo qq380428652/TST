@@ -34,7 +34,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "自定义",
+					"pathName": "pages/classify/classify",
+					"query": "",
+					"scene": "1011"
+				}
+			]
 		}
 	}
 }

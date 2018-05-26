@@ -1,14 +1,20 @@
 {
   "pages": [
+    "pages/index/welcome",
+    "pages/index/guide",
     "pages/index/index",
     "pages/login/login",
+    "pages/my/my_center",
+    "pages/my/my_goods_list",
+    "pages/classify/classify",
+    "pages/goods/goods_list",
+    "pages/goods/goods_detail",
     "pages/manager/manager",
     "pages/manager/goods_list",
     "pages/manager/goods",
     "pages/manager/swiper",
     "pages/manager/msg_success",
-    "pages/manager/msg_fail",
-    "pages/goods/goods_detail"
+    "pages/manager/msg_fail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -27,11 +33,24 @@
         "selectedIconPath": "pages/images/index-icon-fill.png"
       },
       {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "pages/images/classify-icon.png",
+        "selectedIconPath": "pages/images/classify-icon-fill.png"
+      },
+      {
+        "pagePath": "pages/my/my_center",
+        "text": "我的",
+        "iconPath": "pages/images/my-icon.png",
+        "selectedIconPath": "pages/images/my-icon-fill.png"
+      },
+      {
         "pagePath": "pages/login/login",
         "text": "后台",
         "iconPath": "pages/images/manager-icon.png",
         "selectedIconPath": "pages/images/manager-icon-fill.png"
       }
+      
     ]
   }
 }

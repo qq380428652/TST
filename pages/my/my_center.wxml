@@ -1,0 +1,46 @@
+<!--pages/my/my_center.wxml-->
+<view class='container'>
+  <view class='my-center'>
+    <image class='avatar' src="{{userInfo.avatarUrl}}"></image>
+    <view class='name'>{{userInfo.nickName}}</view>
+    <view class='imprint'>
+      <navigator url='' class='collection'>
+        <text>1</text>
+        <text>收藏</text>
+      </navigator>
+      <navigator url='' class='footprint'>
+        <text>3</text>
+        <text>足迹</text>
+      </navigator>
+    </view>
+    <button open-type='contact' plain="true" class='service'>
+      <image src="../images/service-white.png" />
+    </button>
+  </view>
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <navigator url="my_goods_list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="../images/collection.png" class='panel-icon' />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>我的收藏</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+          <navigator url="my_goods_list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="../images/footprint.png" class='panel-icon' />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>我的足迹</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,8 +1,12 @@
 /* pages/common/common.wxss */
+
+.container {
+  border-top: 1px solid #eee;
+}
+
 .container .user-info {
   padding: 10rpx 20rpx;
   background-color: #fff;
-  border-top: 1px solid #eee;
 }
 
 .container .user-info text {
@@ -33,6 +37,7 @@
   border-radius: 50%;
   margin-right: 20rpx;
 }
-.container .user-info .logout{
+
+.container .user-info .logout {
   color: #338aff;
 }

@@ -1,0 +1,58 @@
+/* pages/my/my_center.wxss */
+
+.my-center {
+  width: 100%;
+  text-align: center;
+  padding-top: 60rpx;
+  padding-bottom: 30rpx;
+  background-color: #ff5151;
+}
+
+.my-center .avatar {
+  border-radius: 50%;
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 10px;
+}
+
+.my-center .name {
+  color: #fff;
+}
+
+.my-center .imprint {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #fff;
+  margin: 30rpx 100rpx 0;
+  border-radius: 10px;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  box-shadow: 0 0 20rpx 5rpx #444;
+}
+
+.my-center .imprint .collection, .my-center .imprint .footprint {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.my-center .service {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  border: none;
+  padding: 0;
+}
+
+.my-center .service image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.panel-icon {
+  width: 50rpx;
+  vertical-align: middle;
+  height: 50rpx;
+  margin-right: 5px;
+}

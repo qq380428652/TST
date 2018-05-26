@@ -1,8 +1,7 @@
 //index.js
 //获取应用实例
-const app = getApp()
 const AV = require('../../av/av-weapp-min.js');
-let { swiper } = require("../../utils/indexData.js");
+// const {goods_list} = require('../../utils/util.js');
 Page({
   data: {
     swiper: {
@@ -18,7 +17,6 @@ Page({
       types: ["红酒", "保湿"],
       typeIndex: 0,
     },
-    goodsList: [],
     goods: []
   },
   //事件处理函数
@@ -87,53 +85,44 @@ Page({
       urls: this.data.swiper.banner // 需要预览的图片http链接列表
     })
   },
-  // 获取商品列表
+  // 获取精选商品列表
   getGoodsList() {
     let that = this;
-    let query = new AV.Query('goods');
-    query.find().then(function (goods) {
-      // 成功获得实例
-      console.log(goods)
+    return AV.Cloud.run('getAllGoods',{choice:true}).then(function (data) {
+      // 调用成功，得到成功的应答 data
+      console.log(data)
       that.setData({
-        goodsList: goods,
-        goods: goods
+        goods: data
       })
-    }, function (error) {
-      // 异常处理
-      console.log(error)
-      showToast(0, '获取失败' + error)
+      return data
+    }, function (err) {
+      // 处理调用失败
+      showToast(0, '获取失败' + err)
+      return err
     });
   },
   // 获取轮播图
   getBannerList() {
     let that = this;
+    let banner = [];
     let bannerKey = "swiper.banner";
-    let query = new AV.Query('banner');
-    query.find().then(function (banner) {
-      // 成功获得实例
-      console.log(banner)
-      for (let i in banner) {
-        banner[i] = banner[i].get('url')
+    return AV.Cloud.run('getBanner').then(function (data) {
+      // 调用成功，得到成功的应答 data
+      console.log(data)
+      for (let i in data) {
+        banner[i] = data[i].url
       }
       that.setData({
         [bannerKey]: [].concat(banner)
       })
-    }, function (error) {
-      // 异常处理
-      console.log(error)
-      showToast(0, '获取失败' + error)
+      return data
+    }, function (err) {
+      // 处理调用失败
+      showToast(0, '获取失败' + err)
+      return err
     });
   },
-  getUserInfo(){
-    wx.getUserInfo({
-      success: res => {
-        app.globalData.userInfo = res.userInfo
-        this.setData({
-          userInfo: res.userInfo
-        })
-      }
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -141,21 +130,6 @@ Page({
     this.getGoodsList();
     this.getBannerList();
 
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo
-          })
-        }
-      })
-    }
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
@@ -176,8 +150,19 @@ Page({
     }
   },
   onPullDownRefresh: function () {
-    this.getGoodsList();
-    this.getBannerList();
-    wx.stopPullDownRefresh()
+    let banner = this.getBannerList();
+    banner.then(res => {
+      let goods = this.getGoodsList();
+      goods.then(res => {
+        // console.log(res)
+        wx.stopPullDownRefresh();
+
+      }, err => {
+        showToast(0, '获取失败' + err)
+      })
+    }, err => {
+      showToast(0, '获取失败' + err)
+    })
+
   }
 })

@@ -1,0 +1,21 @@
+/* pages/index/welcome.wxss */
+
+.welcome-bg {
+  width: 100%;
+  height: 1200rpx;
+}
+
+.ready {
+  position: absolute;
+  top: 400rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 350rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 20rpx;
+  color: #fff
+}

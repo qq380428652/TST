@@ -1,0 +1,11 @@
+/* pages/my/my_goods_list.wxss */
+
+.container {
+  background-color: #fff;
+}
+
+.allDel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

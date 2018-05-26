@@ -1,17 +1,43 @@
 <!--pages/goods/goods_detail.wxml-->
 <view class="container">
-  <view class="page__bd page__bd_spacing">
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <view class="placeholder">{{name}}</view>
+  <!--商品轮播start  -->
+  <view class='swiper'>
+    <swiper indicator-dots="{{swiper.indicatorDots}}" circular="{{swiper.circular}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
+      <block wx:for="{{goods.swiperImg}}" wx:key="index">
+        <swiper-item>
+          <view bindtap="previewImage" id='{{item}}'>
+            <image src="{{item}}" class="slide-image" mode="aspectFill" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!--商品轮播end  -->
+  <!--内容start  -->
+  <view class="content">
+    <view class="name">
+      <view class="">
+        <view class="">【TST】{{goods.name}}</view>
       </view>
     </view>
+    <view class='specifications'>
+      规格：{{goods.specifications}}
+    </view>
     <view class='descript'>
-      {{descript}}
+      描述：{{goods.descript}}
     </view>
-    <view class='content'>
-      {{content}}
+    <view class='details'>
+      <view>—— 详情 ——</view>
+      {{goods.details}}
     </view>
-
   </view>
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{!details.length}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+  </view>
+
+  <!--内容end  -->
+  <!--收藏start  -->
+  <button class='collection' type='primary'>收 藏</button>
+  <!--收藏end  -->
+
 </view>

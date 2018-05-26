@@ -1,0 +1,15 @@
+<!--pages/index/guide.wxml-->
+<view class='container'>
+  <view class='swiper'>
+    <swiper indicator-dots="{{swiper.indicatorDots}}" duration="{{swiper.duration}}">
+      <block wx:for="{{swiper.banner}}" wx:key="index">
+        <swiper-item>
+          <view bindtap="previewImage" id='{{item}}'>
+            <image src="{{item}}" class="guide-bg" mode="aspectFit" />
+          </view>
+          <navigator url='index' open-type="switchTab" class="jump" wx:if="{{index == swiper.banner.length-1}}">开 始</navigator> 
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

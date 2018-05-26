@@ -1,0 +1,27 @@
+/* pages/index/guide.wxss */
+
+.guide-bg {
+  width: 100%;
+  height: 1200rpx;
+}
+
+swiper {
+  width: 100%;
+  height: 1200rpx;
+}
+
+.jump {
+  position: absolute;
+  top: 1000rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 280rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: rgba(100, 233, 50, 0.7);
+  border-radius: 50rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 40rpx;
+}

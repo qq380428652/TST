@@ -1,5 +1,7 @@
-// pages/goods/goods_detail.js
+// pages/goods/goods_list.js
+// const { goods_list } = require('../../utils/util.js');
 const AV = require('../../av/av-weapp-min.js');
+const { swiper } = require('../../utils/indexData.js');
 
 Page({
 
@@ -7,34 +9,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiper: {
-      indicatorDots: true,
-      autoplay: true,
-      interval: 3000,
-      duration: 1000,
-      circular: true
-    },
-    goods:[]
-    
+    listStyle: 0,
+    goods_list: []
   },
-  // 预览图片
-  previewImage: function (e) {
-    console.log(e.currentTarget.id)
-    wx.previewImage({
-      current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.swiper.banner // 需要预览的图片http链接列表
+  changeListStyle() {
+    let i = this.data.listStyle;
+    if (i == 0) i = 1
+    else if (i == 1) i = 0
+    this.setData({
+      listStyle: i
     })
   },
-  /**
-     * 获取商品
-     */
-  getGoods(objectId) {
+  search(obj){
     let that = this;
-    AV.Cloud.run('getAllGoods', { objectId: objectId }).then(function (data) {
+    AV.Cloud.run('getSearchGoods', obj).then(function (data) {
       // 调用成功，得到成功的应答 data
       console.log(data)
       that.setData({
-        goods: data[0]
+        goods_list: data
+      })
+    }, function (err) {
+      // 处理调用失败
+      showToast(0, '获取失败' + err)
+    });
+  },
+  classify(obj){
+    let that = this;
+    AV.Cloud.run('getAllGoods', obj).then(function (data) {
+      // 调用成功，得到成功的应答 data
+      console.log(data)
+      that.setData({
+        goods_list: data
       })
     }, function (err) {
       // 处理调用失败
@@ -45,7 +50,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getGoods(options.objectId);
+    if (options.search){
+      this.search(options);
+      return
+    } else if (options.type){
+      options.type = JSON.parse(options.type);
+    }
+    console.log(options)
+    this.classify(options)
+    
   },
 
   /**

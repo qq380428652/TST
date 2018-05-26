@@ -14,47 +14,11 @@
   background-color: #fff;
 }
 
-/*用户信息  */
-
-.container .user-info {
-  padding: 10rpx 20rpx;
-  background-color: #fff;
-  border-top: 1px solid #eee;
-}
-
-.container .user-info text {
-  font-size: 32rpx;
-  line-height: 80rpx;
-  color: #666;
-}
-
-.container .user-info .service {
-  position: relative;
-  height: 100%;
-  border: 1px solid #fff;
-  padding: 10rpx 0;
-}
-
-.container .user-info .service image {
-  width: 60rpx;
-  height: 60rpx;
-}
-
-.container .user-info .weui-flex {
-  height: 80rpx;
-}
-
-.container .user-info .user-img {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-  margin-right: 20rpx;
-}
-
 /*轮播  */
 
 .container swiper {
   height: 400rpx;
+  background-color: #fff;
 }
 
 .container .swiper image {
@@ -78,6 +42,41 @@
 }
 
 /*图文面板  */
+
+.container .block-list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+
+.container .block-list .item {
+  width: 320rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.container .block-list .item .goods-img {
+  width: 320rpx;
+  height: 320rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.container .block-list .item .goods-title {
+  padding: 10rpx 0 4rpx;
+  font-size: 32rpx;
+}
+
+.choice .title {
+  margin-top: 20rpx;
+  background-color: #fff;
+  line-height: 90rpx;
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
 
 .goods {
   margin-top: 0;

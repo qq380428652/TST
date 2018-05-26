@@ -1,0 +1,5 @@
+<!--pages/index/welcome.wxml-->
+<view class='container'>
+  <image class='welcome-bg' src='../images/timg.jpg'></image>
+  <button class="ready" open-type='getUserInfo' hidden='{{!show}}' bindgetuserinfo='bindgetuserinfo'>探索「TST」</button>
+</view>

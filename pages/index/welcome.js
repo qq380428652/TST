@@ -1,5 +1,6 @@
-// pages/goods/goods_detail.js
+// pages/index/welcome.js
 const AV = require('../../av/av-weapp-min.js');
+const app = getApp()
 
 Page({
 
@@ -7,45 +8,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiper: {
-      indicatorDots: true,
-      autoplay: true,
-      interval: 3000,
-      duration: 1000,
-      circular: true
-    },
-    goods:[]
-    
+    show: true
   },
-  // 预览图片
-  previewImage: function (e) {
-    console.log(e.currentTarget.id)
-    wx.previewImage({
-      current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.swiper.banner // 需要预览的图片http链接列表
-    })
-  },
-  /**
-     * 获取商品
-     */
-  getGoods(objectId) {
-    let that = this;
-    AV.Cloud.run('getAllGoods', { objectId: objectId }).then(function (data) {
-      // 调用成功，得到成功的应答 data
-      console.log(data)
-      that.setData({
-        goods: data[0]
+  bindgetuserinfo({ detail }) {
+    const user = AV.User.current();
+    user.set(detail.userInfo).save().then(user => {
+      // 成功，此时可在控制台中看到更新后的用户信息  
+      app.globalData.userInfo = user.toJSON();
+      wx.navigateTo({
+        url: 'guide',
       })
-    }, function (err) {
-      // 处理调用失败
-      showToast(0, '获取失败' + err)
-    });
+    }).catch(console.error);
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getGoods(options.objectId);
+    let that = this;
+    wx.getSetting({
+      success(res) {
+        console.log(res.authSetting['scope.userInfo'])
+        if (res.authSetting['scope.userInfo']) {
+          that.setData({
+            show:false
+          });
+          setTimeout(() => {
+            wx.switchTab({
+              url: 'index',
+            })
+          }, 1000)
+        }
+      }
+    })
   },
 
   /**

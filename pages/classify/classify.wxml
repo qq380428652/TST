@@ -1,0 +1,57 @@
+<!--pages/classify/classify.wxml-->
+<view class="page">
+  <!--搜索start  -->
+  <view class="page__bd">
+    <view class="weui-search-bar search">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" bindconfirm='search' confirm-type='搜索' placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <!--分类start  -->
+    <view class='classify' hidden="{{inputShowed}}">
+      <!--左侧导航start  -->
+      <scroll-view scroll-y="true" class='left'>
+        <view wx:for="{{classify}}" wx:key="{{index}}" id="{{index}}" data-id='goods{{index}}' class="item {{index == activeIndex?'active':''}}" bindtap="tabClick">{{item.name}}</view>
+      </scroll-view>
+      <!--左侧导航end  -->
+      <!--右侧内容start  -->
+      <view class='category'>
+        <navigator wx:for="{{classify[activeIndex].child}}" wx:key="{{index}}" url='../goods/goods_list?type=[{{activeIndex}},{{index}}]' class='item'>
+          <image mode='aspectFill' src='{{item.img}}' />
+          <view>
+            {{item.name}}
+          </view>
+        </navigator>
+      </view>
+      <!--右侧内容end  -->
+    </view>
+    <!--分类end  -->
+    <!--搜索记录start  -->
+    <view class='record' hidden="{{!inputShowed}}">
+      <view class='title'>
+        <text>历史搜索</text>
+        <image catchtap='delRecord' class='del' src='../images/delete-icon.png'></image>
+      </view>
+      <view class='record-list'>
+        <navigator class='item' url='../goods/goods_list?search={{item}}' wx:for="{{userInfo.searchRecord}}" wx:key="{{index}}">{{item}}</navigator>
+      </view>
+      <view class="weui-loadmore weui-loadmore_line" wx:if="{{!userInfo.searchRecord.length}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+      </view>
+    </view>
+    <!--搜索记录end  -->
+  </view>
+  <!--搜索end  -->
+
+</view>
