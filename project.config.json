@@ -38,7 +38,7 @@
 				{
 					"id": 0,
 					"name": "自定义",
-					"pathName": "pages/classify/classify",
+					"pathName": "pages/index/guide",
 					"query": "",
 					"scene": "1011"
 				}
