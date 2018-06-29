@@ -12,5 +12,5 @@ TST
 ####  直接clone项目，运行即可。
     $ git clone https://github.com/qq380428652/TST.git
 ##  4、注意
-项目采用`leancloud服务器`，数据库操作方法按leancloud的[《数据存储开发指南·JavaScript》](https://leancloud.cn/docs/leanstorage_guide-js.html)
+项目采用`leancloud服务器`，使用云函数的配置查看[云函数开发指南 · Node.js](https://leancloud.cn/docs/leanengine_cloudfunction_guide-node.html)，数据库操作方法按leancloud的[《数据存储开发指南·JavaScript》](https://leancloud.cn/docs/leanstorage_guide-js.html)
 
